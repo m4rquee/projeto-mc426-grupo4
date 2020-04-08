@@ -13,10 +13,20 @@
             <e p="MessageBroadcaster.cs" t="Include" />
             <e p="SafeList.cs" t="Include" />
           </e>
+          <e p="MonoSingleton.cs" t="Include" />
         </e>
         <e p="Menu" t="Include">
           <e p="Scripts" t="Include">
             <e p="MenuButtonsController.cs" t="Include" />
+          </e>
+        </e>
+        <e p="StageSelector" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Messages" t="Include">
+              <e p="StageClickedMessage.cs" t="Include" />
+            </e>
+            <e p="StageInfo.cs" t="Include" />
+            <e p="StageInfoHolder.cs" t="Include" />
           </e>
         </e>
         <e p="TextMesh Pro" t="Include">
