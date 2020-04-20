@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Common.Broadcaster;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,7 +20,8 @@ public class StageSelectorScreenController : MonoBehaviour
     {
         for (var i = 0; _positions.HasPosition(i); i++)
         {
-            var goButton = Instantiate(_selectorButtonPrefab, _positions.GetPosition(i));
+            var currentPosition = _positions.GetPosition(i);
+            var goButton = Instantiate(_selectorButtonPrefab, currentPosition);
             var buttonController = goButton.GetComponent<StageButtonController>();
             var localIndex = i;
             buttonController.Init(i, IsStageBlocked(i), () => OpenPlayableScene(localIndex));
