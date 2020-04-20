@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SlimeCollector : MonoBehaviour {
     
-	public static int score = 100;
+	public static int cash = 100;
 
     void OnMouseDown() {
-		score += 10;
-		Destroy(gameObject);
+        cash += 10;
+        Destroy(gameObject);
     }
 }
