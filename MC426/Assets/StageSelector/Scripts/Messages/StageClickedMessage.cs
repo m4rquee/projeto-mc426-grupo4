@@ -2,11 +2,11 @@
 
 public class StageClickedMessage : IMessage
 {
-    public StageInfo StageInfo { get; }
+    public int SelectedStage { get; }
 
     //TODO: Broadcast this message when user clicks on any stage button
-    public StageClickedMessage(StageInfo stageInfo)
+    public StageClickedMessage(int stageInfo)
     {
-        StageInfo = stageInfo;
+        SelectedStage = stageInfo;
     }
 }

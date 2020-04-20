@@ -1,5 +1,6 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Common.Broadcaster;
+using UnityEngine;
 
 namespace StageSelector.Scripts
 {
@@ -11,6 +12,8 @@ namespace StageSelector.Scripts
     {
         private StageInfo _stageInfo;
         private bool _isLocked;
+
+        [SerializeField] private List<StageInfo> _stagesInOrder; 
 
         private void Start()
         {
@@ -44,9 +47,17 @@ namespace StageSelector.Scripts
             return _stageInfo;
         }
 
+        bool HasStageIndex(int index)
+        {
+            return _stagesInOrder.Count > index && index >= 0 && _stagesInOrder[index] != null;
+        }
+
         public void OnMessageReceived(StageClickedMessage message)
         {
-            SetLastClickedStage(message.StageInfo);
+            if (HasStageIndex(message.SelectedStage))
+            {
+                SetLastClickedStage(_stagesInOrder[message.SelectedStage]);
+            }
         }
     }
 }

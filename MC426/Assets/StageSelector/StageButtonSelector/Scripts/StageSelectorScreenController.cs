@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Common.Broadcaster;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StageSelectorScreenController : MonoBehaviour
@@ -16,19 +17,18 @@ public class StageSelectorScreenController : MonoBehaviour
         {
             var goButton = Instantiate(_selectorButtonPrefab, _positions.GetPosition(i));
             var button = goButton.GetComponent<Button>();
-            button.onClick.AddListener(() => OpenPlayableScene(i));
+            var buttonText = goButton.GetComponentInChildren<Text>();
+            buttonText.text = "Fase " + (i + 1).ToString("00");
+            var localIndex = i;
+            button.onClick.AddListener(() => OpenPlayableScene(localIndex));
         }
     }
 
     void OpenPlayableScene(int sceneIndex)
     {
         // TODO: Open game scene
-        MessageBroadcaster.Instance.BroadcastMessage(new StageClickedMessage());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Clicou no botão de entrar na fase número: " + (sceneIndex+1).ToString("00"));
+        MessageBroadcaster.Instance.BroadcastMessage(new StageClickedMessage(sceneIndex));
+        SceneManager.LoadScene("Stage");
     }
 }
