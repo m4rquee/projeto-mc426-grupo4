@@ -5,19 +5,28 @@ using UnityEngine;
 public class ItemHighlight : MonoBehaviour {
     
     [SerializeField]
-    private Color startColor = Color.green;
+    private Color startColor = Color.clear;
     [SerializeField]
     private Color highlightedColor = Color.gray;
 
+    private Renderer render;
+    private bool active = true;
+
 	void Start() {
-		GetComponent<Renderer>().material.color = startColor;
+		render = GetComponent<Renderer>();
+		render.material.color = startColor;
 	}
 
 	void OnMouseEnter() {
-		GetComponent<Renderer>().material.color = highlightedColor;
+		if (active)
+			render.material.color = highlightedColor;
 	}
 
 	void OnMouseExit() {
-		GetComponent<Renderer>().material.color = startColor;
+		render.material.color = startColor;
+	}
+
+	public void Toggle() {
+		active = !active;
 	}
 }
