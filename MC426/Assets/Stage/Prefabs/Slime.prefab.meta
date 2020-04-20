@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:MC426/Assets/Stage/Prefabs/Slime.prefab.meta
 guid: 0e4aed758c75a40eba0f315c4b2da70c
 PrefabImporter:
+=======
+guid: 5bca6f2958bce4d4db0bc7efe80c5a5f
+DefaultImporter:
+>>>>>>> develop:MC426/Assets/Scenes/Menu.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

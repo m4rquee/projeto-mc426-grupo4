@@ -14,6 +14,7 @@ public class SpawnSlime : MonoBehaviour {
     }
 
     private void Spawn() {
-        Instantiate(prefab, transform.position, Quaternion.identity);
+        var aux = Instantiate(prefab, transform.position, Quaternion.identity);
+        Destroy(aux, 5);
     }
 }

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TowerPlacer : MonoBehaviour {
 
+	private GameObject tower = null;
+
     void OnMouseDown() {
-        Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
+    	if (tower == null)
+        	tower = Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
     }
 }
