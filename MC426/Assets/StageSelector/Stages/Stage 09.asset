@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2595d5637aa7246189c3b5c94b008b86, type: 3}
-  m_Name: Stage 01
+  m_Name: Stage 09
   m_EditorClassIdentifier: 
-  _stageId: 0
-  _monsterQuantity: 5
+  _stageId: 8
+  _monsterQuantity: 80

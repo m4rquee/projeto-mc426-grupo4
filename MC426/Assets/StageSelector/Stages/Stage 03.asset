@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2595d5637aa7246189c3b5c94b008b86, type: 3}
   m_Name: Stage 03
   m_EditorClassIdentifier: 
-  _stageId: 3
-  _monsterQuantity: 25
+  _stageId: 2
+  _monsterQuantity: 20

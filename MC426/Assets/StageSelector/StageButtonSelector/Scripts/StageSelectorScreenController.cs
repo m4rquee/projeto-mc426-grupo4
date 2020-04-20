@@ -10,51 +10,40 @@ public class StageSelectorScreenController : MonoBehaviour
 {
     [SerializeField] private StageButtonPositions _positions;
     [SerializeField] private GameObject _selectorButtonPrefab;
-    [SerializeField] private GameObject _blockedStageWarning;
+    [SerializeField] private Animator _blockedStageWarningAnimator;
 
-    private Coroutine _blockedStageCoroutine;
-    
+    private static readonly int Appear = Animator.StringToHash("Appear");
+
     // Start is called before the first frame update
     void Start()
     {
-        _blockedStageWarning.SetActive(false);
         for (var i = 0; _positions.HasPosition(i); i++)
         {
             var goButton = Instantiate(_selectorButtonPrefab, _positions.GetPosition(i));
-            var button = goButton.GetComponent<Button>();
-            var buttonText = goButton.GetComponentInChildren<Text>();
-            buttonText.text = "Fase " + (i + 1).ToString("00");
+            var buttonController = goButton.GetComponent<StageButtonController>();
             var localIndex = i;
-            button.onClick.AddListener(() => OpenPlayableScene(localIndex));
+            buttonController.Init(i, IsStageBlocked(i), () => OpenPlayableScene(localIndex));
         }
     }
 
     void OpenPlayableScene(int sceneIndex)
     {
-        //TODO: Verificar quando uma fase está bloqueada ou não para abrí-la
-        //por enquanto temos apenas a fase teste, então apenas verificamos a primeira
-        if (sceneIndex == 0)
+        if (!IsStageBlocked(sceneIndex))
         {
-            _blockedStageWarning.SetActive(false);
             Debug.Log("Clicou no botão de entrar na fase número: " + (sceneIndex + 1).ToString("00"));
             MessageBroadcaster.Instance.BroadcastMessage(new StageClickedMessage(sceneIndex));
             SceneManager.LoadScene("Stage");
         }
         else
         {
-            _blockedStageWarning.SetActive(true);
-            _blockedStageCoroutine = StartCoroutine(CloseWarningAfterTime(5));
+            _blockedStageWarningAnimator.SetTrigger(Appear);
         }
     }
-
-    IEnumerator CloseWarningAfterTime(int seconds)
+    
+    bool IsStageBlocked(int index)
     {
-        yield return new WaitForSeconds(seconds);
-        _blockedStageWarning.SetActive(false);
-    }
-
-    private void OnDestroy()
-    {
-        StopCoroutine(_blockedStageCoroutine);
+        //TODO: Verificar quando uma fase está bloqueada ou não para abrí-la
+        //por enquanto temos apenas a fase teste, então apenas verificamos a primeira
+        return index != 0;
     }
 }
