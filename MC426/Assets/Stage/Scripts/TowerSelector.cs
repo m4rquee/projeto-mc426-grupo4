@@ -8,7 +8,11 @@ public class TowerSelector : MonoBehaviour {
     [SerializeField]
     private GameObject aux;
 
-    void Start() {
+    void OnMouseDown() {
         prefab = aux;
     }
+
+    //void Start() {
+    //    prefab = aux;
+    //}
 }
