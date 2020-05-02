@@ -23,10 +23,15 @@ public class ItemHighlight : MonoBehaviour {
 	}
 
 	void OnMouseExit() {
+		Clear();
+	}
+
+	void Clear() {
 		render.material.color = startColor;
 	}
 
 	public void Toggle() {
 		active = !active;
+		Clear();
 	}
 }

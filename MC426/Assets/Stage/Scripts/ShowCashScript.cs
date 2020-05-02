@@ -17,6 +17,6 @@ public class ShowCashScript : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "Cash: " + SlimeCollector.cash.ToString();
+        scoreText.text = SlimeCollector.cash.ToString();
     }
 }

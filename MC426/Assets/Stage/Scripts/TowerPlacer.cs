@@ -12,9 +12,9 @@ public class TowerPlacer : MonoBehaviour {
 	}
 
     void OnMouseDown() {
-    	if (tower == null) {
+        if (tower == null) {
         	tower = Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
         	itemHighlight.Toggle();
-    	}
+        }
     }
 }
