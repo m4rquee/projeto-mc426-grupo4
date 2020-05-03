@@ -18,3 +18,6 @@ Aqui vão os passos para conseguir rodar na Unity o jogo:
 
 # Buildando o projeto
 Como o nosso projeto está bem simples, a única coisa necessária para buildá-lo é ir em "File->Build Settings...", clicar no botão "Build" e selecionar uma pasta (de preferência não sendo a projeto) para ser colocado os arquivos gerados pela build.
+
+# Atualizações sobre projeto
+- Vídeo resumindo a primeira sprint [aqui](https://youtu.be/LNGpTxkcrHk).
