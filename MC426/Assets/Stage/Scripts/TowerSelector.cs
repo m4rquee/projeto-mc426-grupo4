@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class TowerSelector : MonoBehaviour {
 
-    public static GameObject prefab;
     [SerializeField]
     private GameObject aux;
+    public static GameObject prefab;
 
     void OnMouseDown() {
         prefab = aux;
     }
 
-    //void Start() {
-    //    prefab = aux;
-    //}
+    void Start() {
+        prefab = aux;
+    }
 }

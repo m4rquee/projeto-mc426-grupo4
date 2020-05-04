@@ -5,13 +5,16 @@ using UnityEngine;
 public class TowerPlacer : MonoBehaviour {
 
 	private GameObject tower = null;
+	private ItemHighlight itemHighlight;
+
+	void Start() {
+		itemHighlight = GetComponent<ItemHighlight>();
+	}
 
     void OnMouseDown() {
-        if (tower == null && TowerSelector.prefab != null) {
-            tower = Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
-            var position = tower.transform.position;
-            position.z = 1;
-            tower.transform.position = position;
+        if (tower == null) {
+        	tower = Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
+        	itemHighlight.Toggle();
         }
     }
 }
