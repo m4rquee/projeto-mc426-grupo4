@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlimeCollector : MonoBehaviour {
-    
-	public static int cash = 100;
+public class SlimeCollector : MonoBehaviour
+{
 
-    void OnMouseDown() {
+    public static int cash = 100;
+
+    void OnMouseDown()
+    {
         cash += 10;
         Destroy(gameObject);
     }

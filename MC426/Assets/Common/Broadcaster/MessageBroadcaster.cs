@@ -15,7 +15,7 @@ namespace Common.Broadcaster
 
         public void Subscribe<T>(IMessageSubscriber<T> subscriber) where T : IMessage
         {
-            if(!_subscribers.Contains(subscriber))
+            if (!_subscribers.Contains(subscriber))
             {
                 _subscribers.Add(subscriber);
             }

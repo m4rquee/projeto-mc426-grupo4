@@ -2,19 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerPlacer : MonoBehaviour {
+public class TowerPlacer : MonoBehaviour
+{
 
-	private GameObject tower = null;
-	private ItemHighlight itemHighlight;
+    private GameObject tower = null;
+    private ItemHighlight itemHighlight;
 
-	void Start() {
-		itemHighlight = GetComponent<ItemHighlight>();
-	}
+    void Start()
+    {
+        itemHighlight = GetComponent<ItemHighlight>();
+    }
 
-    void OnMouseDown() {
-        if (tower == null) {
-        	tower = Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
-        	itemHighlight.Toggle();
+    void OnMouseDown()
+    {
+        if (tower == null)
+        {
+            tower = Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
+            itemHighlight.Toggle();
         }
     }
 }
