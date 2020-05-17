@@ -6,6 +6,9 @@ public class TowerFire : MonoBehaviour
 {
     public GameObject prefab;
 
+    [SerializeField]
+    public string monsterTag;
+
     public float interval;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +29,7 @@ public class TowerFire : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.RaycastAll(origin, -Vector2.right);
 
         foreach(RaycastHit2D hit in hits) {
-            if(hit.collider != null && hit.collider.tag == "Zombie"){
+            if(hit.collider != null && hit.collider.tag == monsterTag){
                 return true;
             }
         }

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Health : MonoBehaviour {
-
 	[SerializeField]
-	private int total = 5;
+	private int total;
 
     public int damage(int amount) {
 		total -= amount; 
