@@ -13,8 +13,13 @@ public class StageButtonController : MonoBehaviour
     
     public void Init(int buttonIndex, bool isButtonBlocked, UnityAction onClick)
     {
-        _text.text = "Fase " + (buttonIndex + 1).ToString("00");
+        _text.text = CreateStageName(buttonIndex);
         _currentImage.sprite = isButtonBlocked ? _disabledButtonSprite : _enabledButtonSprite;
         _button.onClick.AddListener(onClick);
+    }
+
+    string CreateStageName(int index)
+    {
+        return $"Fase {(index + 1):00}";
     }
 }
