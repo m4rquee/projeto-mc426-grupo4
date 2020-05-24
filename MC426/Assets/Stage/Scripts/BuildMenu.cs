@@ -6,9 +6,11 @@ public class BuildMenu : MonoBehaviour
 {
     public static BuildInfo cur;
     public Texture slimeImage;
+    public Texture nullImage;
     public BuildInfo[] towers;
 
     void OnGUI() {
+        ShowCurrentTower();
         GUILayout.BeginArea(new Rect(Screen.width/2 - 100, 0, 200,64));
         GUILayout.BeginHorizontal("box");
         GUILayout.Box(new GUIContent(SlimeCollector.cash.ToString(), slimeImage));
@@ -26,5 +28,18 @@ public class BuildMenu : MonoBehaviour
         GUILayout.EndHorizontal();
         GUILayout.EndArea();
 
+    }
+
+    void ShowCurrentTower(){
+        GUILayout.BeginArea(new Rect(Screen.width/4, 0, 100,64));
+        GUILayout.BeginHorizontal("box");
+        if (cur == null){
+            GUILayout.Box(new GUIContent(nullImage));
+        }
+        else {
+            GUILayout.Box(new GUIContent(cur.previewImage));
+        }
+        GUILayout.EndHorizontal();
+        GUILayout.EndArea();
     }
 }

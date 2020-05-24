@@ -2198,11 +2198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3010b92d5125ef4c877faaba6d8d274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeImage: {fileID: 2800000, guid: a7fa224b403db3f4ca89d27c35aab7b3, type: 3}
+  slimeImage: {fileID: 2800000, guid: 0440da93ea17175478111b66bb349038, type: 3}
+  nullImage: {fileID: 2800000, guid: babbba203f1ce8442916ddf0bf5d4e04, type: 3}
   towers:
-  - {fileID: 661349437955562788, guid: 4aa0fff4bb3176543a9e92c6dee6a584, type: 3}
-  - {fileID: 4474722035447648742, guid: 3dbe05a6ab8cbd34e8e01c8edebe16eb, type: 3}
-  - {fileID: 4474722035447648742, guid: 3dbe05a6ab8cbd34e8e01c8edebe16eb, type: 3}
+  - {fileID: 7870656744525309933, guid: 9626342efc1ec004681084746a19d97a, type: 3}
+  - {fileID: 3138536830924645963, guid: cfe17c061602eb3db914889ca8e3935f, type: 3}
 --- !u!1001 &478680237
 PrefabInstance:
   m_ObjectHideFlags: 0

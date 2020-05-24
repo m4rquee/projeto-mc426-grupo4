@@ -17,8 +17,7 @@ public class TowerFire : MonoBehaviour
     }
 
     private void Shoot(){
-        // if (virusInFront()){}
-        if (true){
+        if (virusInFront()){
             Instantiate(prefab, transform.position, Quaternion.identity);
         }
     }
