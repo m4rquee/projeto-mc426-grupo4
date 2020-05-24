@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class TowerPlacer : MonoBehaviour {
 
-	private GameObject tower = null;
-	private ItemHighlight itemHighlight;
-
-	void Start() {
-		itemHighlight = GetComponent<ItemHighlight>();
+	private void OnMouseUpAsButton() {
+		if (BuildMenu.cur != null){
+			Instantiate(BuildMenu.cur.gameObject, transform.position, Quaternion.identity);
+			SlimeCollector.cash -= BuildMenu.cur.price;
+			BuildMenu.cur = null;
+		}
 	}
-
-    void OnMouseDown() {
-        if (tower == null) {
-        	tower = Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
-        	itemHighlight.Toggle();
-        }
-    }
 }
