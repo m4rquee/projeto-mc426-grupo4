@@ -18,7 +18,7 @@ public class ItemHighlight : MonoBehaviour {
 	}
 
 	void OnMouseEnter() {
-		if (active)
+		if (active && BuildMenu.cur != null)
 			render.material.color = highlightedColor;
 	}
 
