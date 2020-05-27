@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemHighlight : MonoBehaviour {
     
     [SerializeField]
+<<<<<<< HEAD
     private Color startColor = Color.clear;
     [SerializeField]
     private Color highlightedColor = Color.gray;
@@ -33,5 +34,21 @@ public class ItemHighlight : MonoBehaviour {
 	public void Toggle() {
 		active = !active;
 		Clear();
+=======
+    private Color startColor = Color.green;
+    [SerializeField]
+    private Color highlightedColor = Color.gray;
+
+	void Start() {
+		GetComponent<Renderer>().material.color = startColor;
+	}
+
+	void OnMouseEnter() {
+		GetComponent<Renderer>().material.color = highlightedColor;
+	}
+
+	void OnMouseExit() {
+		GetComponent<Renderer>().material.color = startColor;
+>>>>>>> master
 	}
 }

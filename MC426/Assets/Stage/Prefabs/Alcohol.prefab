@@ -12,8 +12,12 @@ GameObject:
   - component: {fileID: 3470148251843435701}
   - component: {fileID: 3470148251843435700}
   - component: {fileID: 3470148251843435703}
+<<<<<<< HEAD
   - component: {fileID: 1524438832291956842}
   - component: {fileID: 3138536830924645963}
+=======
+  - component: {fileID: 7539009442500646194}
+>>>>>>> master
   m_Layer: 0
   m_Name: Alcohol
   m_TagString: Tower
@@ -30,7 +34,11 @@ Transform:
   m_GameObject: {fileID: 3470148251843435699}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
+<<<<<<< HEAD
   m_LocalScale: {x: 1, y: 1, z: 1}
+=======
+  m_LocalScale: {x: 100, y: 100, z: 1}
+>>>>>>> master
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,8 +79,13 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+<<<<<<< HEAD
   m_SortingLayerID: 0
   m_SortingLayer: 0
+=======
+  m_SortingLayerID: 1964037629
+  m_SortingLayer: 1
+>>>>>>> master
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8c0abcb6095149ff49ad74047e7333fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -124,7 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   total: 5
+<<<<<<< HEAD
 --- !u!114 &1524438832291956842
+=======
+--- !u!114 &7539009442500646194
+>>>>>>> master
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,6 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3470148251843435699}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: da02afa94f608c24a8ced6b38feaa772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -153,3 +171,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previewImage: {fileID: 2800000, guid: 990f06e7b93c4e445ac4644eef1e77a4, type: 3}
   price: 100
+=======
+  m_Script: {fileID: 11500000, guid: eaec76c0b7bad4d988d4e58e05fcfa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3512158260622304013, guid: 0e4aed758c75a40eba0f315c4b2da70c, type: 3}
+  delay: 10
+>>>>>>> master
