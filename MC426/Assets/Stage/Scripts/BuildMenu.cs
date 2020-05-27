@@ -11,7 +11,7 @@ public class BuildMenu : MonoBehaviour
 
     void OnGUI() {
         ShowCurrentTower();
-        GUILayout.BeginArea(new Rect(Screen.width/2 - 100, 0, 200,64));
+        GUILayout.BeginArea(new Rect(Screen.width/2 - 100, 0, 300,64));
         GUILayout.BeginHorizontal("box");
         GUILayout.Box(new GUIContent(SlimeCollector.cash.ToString(), slimeImage));
         foreach (BuildInfo bi in towers){

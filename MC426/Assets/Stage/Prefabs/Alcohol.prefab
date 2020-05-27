@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2052434808596285377, guid: e787588902f7e8848b148649a2c382a2, type: 3}
-  monsterTag: 
+  monsterTag: Monster
   interval: 1
 --- !u!114 &3138536830924645963
 MonoBehaviour:
