@@ -1,15 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SlimeCollector : MonoBehaviour
 {
+    public static int Cash = 100;
 
-    public static int cash = 100;
-
-    void OnMouseDown()
+    private void OnMouseDown()
     {
-        cash += 10;
+        Cash += 10;
         Destroy(gameObject);
     }
 }

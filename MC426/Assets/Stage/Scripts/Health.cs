@@ -1,14 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private int total = 5;
 
-    [SerializeField]
-    private int total = 5;
-
-    public int damage(int amount)
+    public int Damage(int amount)
     {
         total -= amount;
         if (total <= 0)

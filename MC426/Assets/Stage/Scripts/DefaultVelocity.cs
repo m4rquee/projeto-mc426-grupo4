@@ -1,15 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DefaultVelocity : MonoBehaviour
 {
+    [SerializeField] private Vector2 velocity;
 
-    [SerializeField]
-    private Vector2 velocity;
+    private Rigidbody2D _rigidbody2D;
 
-    void FixedUpdate()
+    private void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = velocity;
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        _rigidbody2D.velocity = velocity;
     }
 }

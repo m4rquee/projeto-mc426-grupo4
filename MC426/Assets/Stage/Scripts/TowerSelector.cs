@@ -1,21 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TowerSelector : MonoBehaviour
 {
+    [SerializeField] private GameObject aux;
+    public static GameObject Prefab;
 
-    [SerializeField]
-    private GameObject aux;
-    public static GameObject prefab;
-
-    void OnMouseDown()
+    public void OnMouseDown()
     {
-        prefab = aux;
+        Prefab = aux;
     }
 
-    void Start()
+    private void Start()
     {
-        prefab = aux;
+        Prefab = aux;
     }
 }
