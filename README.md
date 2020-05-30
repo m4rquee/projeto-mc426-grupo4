@@ -21,3 +21,5 @@ Como o nosso projeto está bem simples, a única coisa necessária para buildá-
 
 # Atualizações sobre projeto
 - Vídeo resumindo a primeira sprint [aqui](https://youtu.be/LNGpTxkcrHk).
+
+# Descrição da arquitetura:
