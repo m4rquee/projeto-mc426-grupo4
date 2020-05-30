@@ -23,3 +23,4 @@ Como o nosso projeto está bem simples, a única coisa necessária para buildá-
 - Vídeo resumindo a primeira sprint [aqui](https://youtu.be/LNGpTxkcrHk).
 
 # Descrição da arquitetura:
+![Architecture](/architecture.png)
