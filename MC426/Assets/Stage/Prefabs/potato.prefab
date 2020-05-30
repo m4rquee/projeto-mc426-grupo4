@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8539362233387539848}
   m_Layer: 0
   m_Name: potato
-  m_TagString: Monster
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
