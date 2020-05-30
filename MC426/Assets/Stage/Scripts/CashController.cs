@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CashController : MonoBehaviour
 {
-    [SerializeField]
-    public static int cash;
+    [SerializeField] public static int Cash;
 }

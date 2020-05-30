@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerPlacer : MonoBehaviour {
+public class TowerPlacer : MonoBehaviour
+{
 
-	private void OnMouseUpAsButton() {
-		if (BuildMenu.cur != null){
-			Instantiate(BuildMenu.cur.gameObject, transform.position, Quaternion.identity);
-			SlimeCollector.cash -= BuildMenu.cur.price;
-			BuildMenu.cur = null;
-		}
-	}
+    private void OnMouseUpAsButton()
+    {
+        if (BuildMenu.Cur != null)
+        {
+            Instantiate(BuildMenu.Cur.gameObject, transform.position, Quaternion.identity);
+            SlimeCollector.cash -= BuildMenu.Cur.price;
+            BuildMenu.Cur = null;
+        }
+    }
 }
