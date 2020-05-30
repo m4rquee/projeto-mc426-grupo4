@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemHighlight : MonoBehaviour {
-    
+public class ItemHighlight : MonoBehaviour
+{
+
     [SerializeField]
     private Color startColor = Color.clear;
     [SerializeField]
@@ -12,26 +13,31 @@ public class ItemHighlight : MonoBehaviour {
     private Renderer render;
     private bool active = true;
 
-	void Start() {
-		render = GetComponent<Renderer>();
-		render.material.color = startColor;
-	}
+    void Start()
+    {
+        render = GetComponent<Renderer>();
+        render.material.color = startColor;
+    }
 
-	void OnMouseEnter() {
-		if (active)
-			render.material.color = highlightedColor;
-	}
+    void OnMouseEnter()
+    {
+        if (active && BuildMenu.Cur != null)
+            render.material.color = highlightedColor;
+    }
 
-	void OnMouseExit() {
-		Clear();
-	}
+    void OnMouseExit()
+    {
+        Clear();
+    }
 
-	void Clear() {
-		render.material.color = startColor;
-	}
+    void Clear()
+    {
+        render.material.color = startColor;
+    }
 
-	public void Toggle() {
-		active = !active;
-		Clear();
-	}
+    public void Toggle()
+    {
+        active = !active;
+        Clear();
+    }
 }

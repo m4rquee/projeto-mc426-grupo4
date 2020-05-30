@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerPlacer : MonoBehaviour {
+public class TowerPlacer : MonoBehaviour
+{
 
-	private GameObject tower = null;
-	private ItemHighlight itemHighlight;
-
-	void Start() {
-		itemHighlight = GetComponent<ItemHighlight>();
-	}
-
-    void OnMouseDown() {
-        if (tower == null) {
-        	tower = Instantiate(TowerSelector.prefab, transform.position, Quaternion.identity);
-        	itemHighlight.Toggle();
+    private void OnMouseUpAsButton()
+    {
+        if (BuildMenu.Cur != null)
+        {
+            Instantiate(BuildMenu.Cur.gameObject, transform.position, Quaternion.identity);
+            SlimeCollector.cash -= BuildMenu.Cur.price;
+            BuildMenu.Cur = null;
         }
     }
 }

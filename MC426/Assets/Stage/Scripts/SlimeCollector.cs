@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SlimeCollector : MonoBehaviour {
-    
-	public static int cash = 100;
+    [SerializeField]
+	private int cashValue;
+
+    public static int cash = 100;
 
     void OnMouseDown() {
-        cash += 10;
+        cash += cashValue;
         Destroy(gameObject);
     }
 }
