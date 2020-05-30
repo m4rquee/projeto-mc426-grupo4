@@ -9,3 +9,6 @@ cmd = '~/Unity/Hub/Editor/[version]/Editor/Data/Tools/UnityYAMLMerge' merge -p "
 cmd = 'C:\\Program Files( (x86))?\\Unity\\Editor\\Data\\Tools\\UnityYAMLMerge.exe' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
 # Mac:
 cmd = '/Applications/Unity/Unity.app/Contents/Tools/UnityYAMLMerge' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+
+# Apply with:
+# git config --local include.path ./.gitconfig
