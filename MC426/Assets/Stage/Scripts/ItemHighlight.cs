@@ -1,23 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ItemHighlight : MonoBehaviour {
-    
-    [SerializeField]
-    private Color startColor = Color.green;
-    [SerializeField]
-    private Color highlightedColor = Color.gray;
+public class ItemHighlight : MonoBehaviour
+{
+    [SerializeField] private Color startColor = Color.clear;
+    [SerializeField] private Color highlightedColor = Color.gray;
 
-	void Start() {
-		GetComponent<Renderer>().material.color = startColor;
-	}
+    private Renderer render;
+    private bool active = true;
 
-	void OnMouseEnter() {
-		GetComponent<Renderer>().material.color = highlightedColor;
-	}
+    private void Start()
+    {
+        render = GetComponent<Renderer>();
+        render.material.color = startColor;
+    }
 
-	void OnMouseExit() {
-		GetComponent<Renderer>().material.color = startColor;
-	}
+    private void OnMouseEnter()
+    {
+        if (active && BuildMenu.Cur != null)
+            render.material.color = highlightedColor;
+    }
+
+    private void OnMouseExit()
+    {
+        Clear();
+    }
+
+    private void Clear()
+    {
+        render.material.color = startColor;
+    }
+
+    public void Toggle()
+    {
+        active = false;
+        Clear();
+    }
 }
