@@ -1,22 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections;
-using UnityEngine.UI;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class ShowCashScript : MonoBehaviour
 {
-    TextMeshProUGUI scoreText;
-    int scoreCounter;
+    private TextMeshProUGUI scoreText;
+    private int scoreCounter;
 
-    void Start()
+    private void Start()
     {
         scoreText = GetComponent<TextMeshProUGUI>();
     }
 
-    void Update()
+    private void Update()
     {
-        scoreText.text = SlimeCollector.cash.ToString();
+        scoreText.text = SlimeCollector.Cash.ToString();
     }
 }
