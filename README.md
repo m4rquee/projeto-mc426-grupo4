@@ -24,3 +24,8 @@ Como o nosso projeto está bem simples, a única coisa necessária para buildá-
 
 # Descrição da arquitetura:
 ![Architecture](/architecture.png)
+
+O uml proposto para esse projeto tem 3 componentes principais: Menu, Stage e Stage Selector, que são basicamente as 3 scenes que o projeto está dividido.
+ - O componente menu é a primeira cena que o jogador vai ver quando o jogo for carregado, ela é responsável por redirecionar o jogador para o Stage Selector, assim como fechar o jogo ou abrir o menu de opções.
+ - O componente stage selector é a cena intermediária, a qual deve redirecionar o Stage escolhido. Essa cena também é responsável por carregar o arquivo "save" para mostrar corretamente as fases habilitadas pelo usuário.
+ - Por fim, o componente stage é a cena final e a que o jogador vai passar mais tempo, é a cena do jogo. O componente é responsável por gerenciar os principais objetos do jogo, como as torres e os monstros. Esta cena tem como função englobar os componentes do jogo e torná-los em uma fase jogável.
