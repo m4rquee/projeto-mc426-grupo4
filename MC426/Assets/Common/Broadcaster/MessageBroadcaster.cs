@@ -5,17 +5,18 @@ namespace Common.Broadcaster
 {
     public class MessageBroadcaster
     {
-        static MessageBroadcaster _instance;
+        private static MessageBroadcaster _instance;
+
         public static MessageBroadcaster Instance
         {
             get { return _instance ?? (_instance = new MessageBroadcaster()); }
         }
 
-        readonly SafeList<object> _subscribers = new SafeList<object>();
+        private readonly SafeList<object> _subscribers = new SafeList<object>();
 
         public void Subscribe<T>(IMessageSubscriber<T> subscriber) where T : IMessage
         {
-            if(!_subscribers.Contains(subscriber))
+            if (!_subscribers.Contains(subscriber))
             {
                 _subscribers.Add(subscriber);
             }

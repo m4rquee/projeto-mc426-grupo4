@@ -1,0 +1,16 @@
+#!/bin/sh
+# @@@@@Put this file in your .git/hooks folder@@@@@
+# Formating code:
+
+LC_ALL=C
+# Select files to add to the commit
+FILES=$(git diff --cached --name-only --diff-filter=ACM "*.cs" | sed 's| |\\ |g')
+[ -z "$FILES" ] && exit 0
+
+# Format all files
+dotnet-format -w "$(git rev-parse --show-toplevel)/MC426/Assembly-CSharp.csproj"
+
+# Add back the modified files to staging
+echo "$FILES" | xargs git add
+
+exit 0

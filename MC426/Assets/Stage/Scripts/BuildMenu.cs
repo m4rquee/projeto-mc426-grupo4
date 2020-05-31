@@ -12,10 +12,10 @@ public class BuildMenu : MonoBehaviour
         ShowCurrentTower();
         GUILayout.BeginArea(new Rect(Screen.width / 2 - 100, 0, 300, 64));
         GUILayout.BeginHorizontal("box");
-        GUILayout.Box(new GUIContent(SlimeCollector.cash.ToString(), slimeImage));
-        foreach (var bi in towers)
+        GUILayout.Box(new GUIContent(SlimeCollector.Cash.ToString(), slimeImage));
+        foreach (var bi in towers) //TODO: Remove this foreach loop
         {
-            GUI.enabled = SlimeCollector.cash >= bi.price;
+            GUI.enabled = SlimeCollector.Cash >= bi.price;
             if (GUILayout.Button(new GUIContent(bi.price.ToString(), bi.previewImage)))
             {
                 Cur = Cur == bi ? null : bi;

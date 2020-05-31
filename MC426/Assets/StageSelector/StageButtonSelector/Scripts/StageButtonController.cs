@@ -10,7 +10,7 @@ public class StageButtonController : MonoBehaviour
     [SerializeField] private Sprite _enabledButtonSprite;
     [SerializeField] private Sprite _disabledButtonSprite;
     [SerializeField] private Image _currentImage;
-    
+
     public void Init(int buttonIndex, bool isButtonBlocked, UnityAction onClick)
     {
         _text.text = "Fase " + (buttonIndex + 1).ToString("00");

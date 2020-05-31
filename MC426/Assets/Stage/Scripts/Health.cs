@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Health : MonoBehaviour {
-	[SerializeField]
-	private int total;
+public class Health : MonoBehaviour
+{
+    [SerializeField] private int total;
 
-    public int damage(int amount) {
-		total -= amount; 
-		if (total <= 0)
-			Destroy(gameObject);
-		return total;
+    public int Damage(int amount)
+    {
+        total -= amount;
+        if (total <= 0)
+            Destroy(gameObject);
+        return total;
     }
 }
