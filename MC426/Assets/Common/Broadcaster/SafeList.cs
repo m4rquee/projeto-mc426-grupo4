@@ -10,7 +10,7 @@ namespace Common.Broadcaster
     {
         private object m_lockObject = new object();
 
-        private List<T> m_list = null;
+        private List<T> m_list;
 
         public SafeList()
         {

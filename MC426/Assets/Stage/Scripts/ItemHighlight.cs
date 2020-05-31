@@ -16,7 +16,7 @@ public class ItemHighlight : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (active)
+        if (active && BuildMenu.Cur != null)
             render.material.color = highlightedColor;
     }
 
@@ -32,7 +32,7 @@ public class ItemHighlight : MonoBehaviour
 
     public void Toggle()
     {
-        active = !active;
+        active = false;
         Clear();
     }
 }

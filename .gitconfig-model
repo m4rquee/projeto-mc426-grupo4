@@ -1,0 +1,16 @@
+[merge]
+tool = unityyamlmerge
+
+[mergetool "unityyamlmerge"]
+trustExitCode = false
+# Linux:
+cmd = '~/Unity/Hub/Editor/[version]/Editor/Data/Tools/UnityYAMLMerge' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+# Windowns:
+cmd = 'C:\\Program Files( (x86))?\\Unity\\Editor\\Data\\Tools\\UnityYAMLMerge.exe' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+# Mac:
+cmd = '/Applications/Unity/Unity.app/Contents/Tools/UnityYAMLMerge' merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+
+# How to use:
+# Create a .gitconfig file
+# Copy the right version into the file
+# Run this command: git config --local include.path ../.gitconfig

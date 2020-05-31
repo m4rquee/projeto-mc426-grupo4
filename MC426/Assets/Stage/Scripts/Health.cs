@@ -2,7 +2,7 @@
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int total = 5;
+    [SerializeField] private int total;
 
     public int Damage(int amount)
     {

@@ -1,9 +1,9 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
 {
-    static T _instance;
+    private static T _instance;
+
     public static T Instance
     {
         get
@@ -17,9 +17,10 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
         }
     }
 
-    [SerializeField] Color _tagColor = Color.white;
+    [SerializeField] private Color _tagColor = Color.white;
 
-    string _tag;
+    private string _tag;
+
     public string Tag
     {
         get
@@ -28,14 +29,15 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
             {
 #if UNITY_EDITOR
                 _tag = string.Format("<color=#{0:X2}{1:X2}{2:X2}>[{3}]</color>",
-                                     (byte)(_tagColor.r * 255f),
-                                     (byte)(_tagColor.g * 255f),
-                                     (byte)(_tagColor.b * 255f),
-                                     typeof(T).ToString());
+                    (byte)(_tagColor.r * 255f),
+                    (byte)(_tagColor.g * 255f),
+                    (byte)(_tagColor.b * 255f),
+                    typeof(T).ToString());
 #else
 				_tag = "["+typeof(T).ToString()+"] ";
 #endif
             }
+
             return _tag;
         }
     }
