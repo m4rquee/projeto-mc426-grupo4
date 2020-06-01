@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3512158260622304013, guid: 0e4aed758c75a40eba0f315c4b2da70c, type: 3}
   delay: 3
+  slimeLifetime: 5
 --- !u!114 &7870656744525309933
 MonoBehaviour:
   m_ObjectHideFlags: 0
