@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeMonsterAnimationController : MonoBehaviour
@@ -38,5 +36,12 @@ public class MeleeMonsterAnimationController : MonoBehaviour
     {
         _animator.SetBool(Walking, true);
         _currentCallback = callback;
+    }
+
+    // function called by animation
+    public void ExecuteCallback()
+    {
+        _currentCallback?.Invoke();
+        _currentCallback = null;
     }
 }

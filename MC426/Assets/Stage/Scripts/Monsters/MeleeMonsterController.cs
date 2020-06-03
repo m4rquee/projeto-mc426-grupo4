@@ -54,6 +54,7 @@ public class MeleeMonsterController : MonoBehaviour, IMonster
     public void WalkForward()
     {
         _rigidBody.AddForce(Vector2.left * Velocity);
+        _animatorController.PlayWalkingAnimation();
     }
 
     public bool IsTowerInRange()
