@@ -13,13 +13,13 @@ namespace StageSelector.Scripts
         private StageInfo _stageInfo;
         private bool _isLocked;
 
-        [SerializeField] private List<StageInfo> _stagesInOrder; 
+        [SerializeField] private List<StageInfo> _stagesInOrder;
 
         private void Start()
         {
             MessageBroadcaster.Instance.Subscribe(this);
         }
-        
+
         private void OnDestroy()
         {
             MessageBroadcaster.Instance.Unsubscribe(this);
@@ -29,7 +29,7 @@ namespace StageSelector.Scripts
         {
             _isLocked = true;
         }
-        
+
         public void UnlockStageInfo()
         {
             _isLocked = false;
@@ -38,7 +38,7 @@ namespace StageSelector.Scripts
         public void SetLastClickedStage(StageInfo stageInfo)
         {
             if (_isLocked) return;
-            
+
             _stageInfo = stageInfo;
         }
 

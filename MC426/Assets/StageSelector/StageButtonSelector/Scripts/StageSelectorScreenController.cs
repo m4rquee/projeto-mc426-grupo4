@@ -41,7 +41,7 @@ public class StageSelectorScreenController : MonoBehaviour
             _blockedStageWarningAnimator.SetTrigger(Appear);
         }
     }
-    
+
     bool IsStageBlocked(int index)
     {
         //TODO: Verificar quando uma fase está bloqueada ou não para abrí-la

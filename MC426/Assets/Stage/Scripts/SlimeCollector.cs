@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SlimeCollector : MonoBehaviour {
-    
-	public static int cash = 100;
+public class SlimeCollector : MonoBehaviour
+{
+    [SerializeField] private int cashValue;
+    public static int Cash = 100;
 
-    void OnMouseDown() {
-        cash += 10;
+    private void OnMouseDown()
+    {
+        Cash += cashValue;
         Destroy(gameObject);
     }
 }

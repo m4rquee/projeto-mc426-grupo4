@@ -1,20 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SpawnSlime : MonoBehaviour {
-    
-    [SerializeField]
-    private GameObject prefab;
-    [SerializeField]
-    private int delay = 10;
+public class SpawnSlime : MonoBehaviour
+{
+    [SerializeField] private GameObject prefab;
+    [SerializeField] private int delay = 10;
 
-    void Start() {
-        InvokeRepeating("Spawn", delay, delay); 
+    private void Start()
+    {
+        InvokeRepeating(nameof(Spawn), delay, delay);
     }
 
-    private void Spawn() {
-        var aux = Instantiate(prefab, transform.position, Quaternion.identity);
-        Destroy(aux, 5);
+    private void Spawn()
+    {
+        Destroy(Instantiate(prefab, transform.position, Quaternion.identity), 5);
     }
 }
