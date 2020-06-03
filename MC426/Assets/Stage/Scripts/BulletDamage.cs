@@ -7,8 +7,9 @@ public class BulletDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.CompareTag(monsterTag)) return;
-        col.GetComponent<Health>().Damage(damageDone);
+        if (!col.CompareTag(monsterTag))
+            return;
+        col.GetComponent<Health>().TakeDamage(damageDone);
         Destroy(gameObject);
     }
 }
