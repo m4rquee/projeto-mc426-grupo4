@@ -6,7 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 	[SerializeField] private int _maxHealth = 100;
-	[Range(0, 1)] [SerializeField] private float _currentHealthPercentage;
+	[Range(0, 1)] [SerializeField] private float _currentHealthPercentage = 1f;
 
 	private Action _onLifeEnds;
 
