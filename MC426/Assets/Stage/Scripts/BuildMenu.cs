@@ -6,25 +6,16 @@ public class BuildMenu : MonoBehaviour
     public Texture slimeImage;
     public Texture nullImage;
     public BuildInfo[] towers;
-    public static int Cash;
-
-    [SerializeField]
-    private int startCash = 80;
-
-    private void Start()
-    {
-        Cash = startCash;
-    }
 
     private void OnGUI()
     {
         ShowCurrentTower();
         GUILayout.BeginArea(new Rect(Screen.width / 2 - 100, 0, 300, 64));
         GUILayout.BeginHorizontal("box");
-        GUILayout.Box(new GUIContent(Cash.ToString(), slimeImage));
-        foreach (var bi in towers)
+        GUILayout.Box(new GUIContent(SlimeCollector.Cash.ToString(), slimeImage));
+        foreach (var bi in towers) //TODO: Remove this foreach loop
         {
-            GUI.enabled = Cash >= bi.price;
+            GUI.enabled = SlimeCollector.Cash >= bi.price;
             if (GUILayout.Button(new GUIContent(bi.price.ToString(), bi.previewImage)))
             {
                 Cur = Cur == bi ? null : bi;
@@ -39,8 +30,7 @@ public class BuildMenu : MonoBehaviour
     {
         GUILayout.BeginArea(new Rect(Screen.width / 4f, 0, 100, 64));
         GUILayout.BeginHorizontal("box");
-        var curBox = new GUIContent(Cur == null ? nullImage : Cur.previewImage);
-        GUILayout.Box(curBox);
+        GUILayout.Box(Cur == null ? new GUIContent(nullImage) : new GUIContent(Cur.previewImage));
 
         GUILayout.EndHorizontal();
         GUILayout.EndArea();

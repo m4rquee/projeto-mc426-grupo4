@@ -3,10 +3,11 @@
 public class SlimeCollector : MonoBehaviour
 {
     [SerializeField] private int cashValue;
+    public static int Cash = 100;
 
-    private void OnMouseOver()
+    private void OnMouseDown()
     {
-        BuildMenu.Cash += cashValue;
+        Cash += cashValue;
         Destroy(gameObject);
     }
 }

@@ -14,7 +14,7 @@ public class TowerPlacer : MonoBehaviour
     {
         if (BuildMenu.Cur == null || tower != null) return;
         tower = Instantiate(BuildMenu.Cur.gameObject, transform.position, Quaternion.identity);
-        BuildMenu.Cash -= BuildMenu.Cur.price;
+        SlimeCollector.Cash -= BuildMenu.Cur.price;
         BuildMenu.Cur = null;
         itemHighlight.Toggle();
     }
