@@ -38,9 +38,9 @@ public class Timer : MonoBehaviour
     {
         DelayedTick delayedCallback = currentTime =>
         {
-            if (currentTime % delay != 0) return;
+            if (currentTime % delay != 0) return; //TODO: Unused calls
             callback();
-            Debug.Log(delay);
+            // Debug.Log(delay);
         };
         Listeners += delayedCallback;
         _mapper[callback] = delayedCallback;
