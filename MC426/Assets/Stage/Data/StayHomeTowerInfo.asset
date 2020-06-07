@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7319f8e0bd2ca1c4b94ee38c8c00c756, type: 3}
+  m_Name: StayHomeTowerInfo
+  m_EditorClassIdentifier: 
+  _prefab: {fileID: 7114863516317113441, guid: 6747d9556b9a444ac8a727cb7a8360ee, type: 3}
+  _previewImage: {fileID: 21300000, guid: dff0f5848687b5142a91aedc1cd1a1ea, type: 3}
+  _price: 50

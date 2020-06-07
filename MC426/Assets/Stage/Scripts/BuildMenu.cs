@@ -1,38 +1,38 @@
-﻿using UnityEngine;
+﻿using System;
+using Common.Broadcaster;
+using UnityEngine;
 
-public class BuildMenu : MonoBehaviour
+public class BuildMenu : MonoBehaviour, IMessageSubscriber<TowerPlacedMessage>
 {
-    public static BuildInfo Cur;
-    public Texture slimeImage;
-    public Texture nullImage;
-    public BuildInfo[] towers;
+    public static TowerInfo CurrentTowerInfo { get; private set; }
+    [SerializeField] private TowerInfo[] towers;
+    [SerializeField] private GameObject _buttonPrefab;
 
-    private void OnGUI()
+    private void Start()
     {
-        ShowCurrentTower();
-        GUILayout.BeginArea(new Rect(Screen.width / 2 - 100, 0, 300, 64));
-        GUILayout.BeginHorizontal("box");
-        GUILayout.Box(new GUIContent(SlimeCollector.Cash.ToString(), slimeImage));
-        foreach (var bi in towers) //TODO: Remove this foreach loop
+        MessageBroadcaster.Instance.Subscribe<TowerPlacedMessage>(this);
+        for (var i = 0; i < towers.Length; i++)
         {
-            GUI.enabled = SlimeCollector.Cash >= bi.price;
-            if (GUILayout.Button(new GUIContent(bi.price.ToString(), bi.previewImage)))
-            {
-                Cur = Cur == bi ? null : bi;
-            }
+            var tower = towers[i];
+            var newButton = Instantiate(_buttonPrefab, transform);
+            var buttonController = newButton.GetComponent<TowerButtonController>();
+            var localIndex = i;
+            buttonController.Setup(tower, () => OnButtonClick(localIndex));
         }
-
-        GUILayout.EndHorizontal();
-        GUILayout.EndArea();
     }
 
-    private void ShowCurrentTower()
+    private void OnDestroy()
     {
-        GUILayout.BeginArea(new Rect(Screen.width / 4f, 0, 100, 64));
-        GUILayout.BeginHorizontal("box");
-        GUILayout.Box(Cur == null ? new GUIContent(nullImage) : new GUIContent(Cur.previewImage));
+        MessageBroadcaster.Instance.Unsubscribe<TowerPlacedMessage>(this);
+    }
 
-        GUILayout.EndHorizontal();
-        GUILayout.EndArea();
+    void OnButtonClick(int buttonIndex)
+    {
+        CurrentTowerInfo = towers[buttonIndex];
+    }
+
+    public void OnMessageReceived(TowerPlacedMessage message)
+    {
+        CurrentTowerInfo = null;
     }
 }

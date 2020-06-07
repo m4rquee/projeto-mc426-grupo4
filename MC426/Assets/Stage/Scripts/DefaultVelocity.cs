@@ -9,10 +9,6 @@ public class DefaultVelocity : MonoBehaviour
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-    }
-
-    private void FixedUpdate()
-    {
-        _rigidbody2D.velocity = velocity;
+        _rigidbody2D.AddForce(velocity);
     }
 }

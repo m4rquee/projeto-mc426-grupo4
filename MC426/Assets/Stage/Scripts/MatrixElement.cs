@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Common.Broadcaster;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MatrixElement : MonoBehaviour
@@ -29,11 +30,11 @@ public class MatrixElement : MonoBehaviour
 
     private void OnTowerClicked()
     {
-        if (BuildMenu.Cur == null || _currentState == MatrixElementState.TowerPlaced) return;
+        if (BuildMenu.CurrentTowerInfo == null || _currentState == MatrixElementState.TowerPlaced) return;
         
-        Instantiate(BuildMenu.Cur.gameObject, _towerAnchor.transform.position, Quaternion.identity);
-        SlimeCollector.Cash -= BuildMenu.Cur.price;
-        BuildMenu.Cur = null;
+        Instantiate(BuildMenu.CurrentTowerInfo.Prefab, _towerAnchor.transform);
+        SlimeCollector.Cash -= BuildMenu.CurrentTowerInfo.Price;
+        MessageBroadcaster.Instance.BroadcastMessage(new TowerPlacedMessage());
         ChangeCurrentState(MatrixElementState.TowerPlaced);
     }
 

@@ -12,6 +12,6 @@ public class SpawnSlime : MonoBehaviour
 
     private void Spawn()
     {
-        Destroy(Instantiate(prefab, transform.position, Quaternion.identity), 5);
+        Destroy(Instantiate(prefab, transform), 5);
     }
 }
