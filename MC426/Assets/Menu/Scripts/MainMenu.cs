@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private static string nextScene = "StageSelector";
+    private static string nextScene = ScenesObject.getStageSelector();
 
     public void PlayGame()
     {
