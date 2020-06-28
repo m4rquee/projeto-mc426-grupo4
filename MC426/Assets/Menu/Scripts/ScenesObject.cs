@@ -4,16 +4,19 @@ using UnityEngine;
 
 public static class ScenesObject
 {
-    
-    public static string getStageSelector(){
+
+    public static string getStageSelector()
+    {
         return "StageSelector";
     }
 
-    public static string getStage(){
+    public static string getStage()
+    {
         return "Stage";
     }
 
-    public static string getMenu(){
+    public static string getMenu()
+    {
         return "Menu";
     }
 
