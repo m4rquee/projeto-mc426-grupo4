@@ -3,30 +3,28 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 namespace Tests
 {
     public class MenuTest
-    {
-        public ShowStageBlockedWarningMessage ShowStageBlockedWarningMessage;
-        
-        // A Test behaves as an ordinary method
-        [Test]
-        public void MenuTestSimplePasses()
-        {
-            Assert.True(true);
-            // Use the Assert class to test conditions
-        }
-
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
+    {               
         [UnityTest]
-        public IEnumerator MenuTestWithEnumeratorPasses()
+        public IEnumerator TestPlayGame()
         {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            Assert.False(!true);
-            yield return null;
+        string stageSelectorName = ScenesObject.getStageSelector();
+
+        Assert.IsFalse(SceneManager.GetSceneByName(stageSelectorName).IsValid());
+
+        SceneManager.LoadScene(ScenesObject.getMenu());
+        yield return null;
+
+        var gameObject = GameObject.FindWithTag(ScenesObject.getMenu());
+
+        MainMenu menu = gameObject.GetComponent<MainMenu>();
+        menu.PlayGame();
+        Assert.IsTrue(SceneManager.GetSceneByName(stageSelectorName).IsValid());
         }
     }
 }
