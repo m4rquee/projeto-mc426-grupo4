@@ -12,7 +12,9 @@ public class StageSelectorScreenController : MonoBehaviour
     [SerializeField] private StageButtonPositions _positions;
     [SerializeField] private GameObject _selectorButtonPrefab;
     [SerializeField] private Animator _blockedStageWarningAnimator;
-
+    private GameObject[] buttons = new GameObject[10];
+    
+    private int previousUnlockedStages = StageSelectorStagesLoader.getUnlockedStages();
     private static readonly int Appear = Animator.StringToHash("Appear");
 
     // Start is called before the first frame update
@@ -25,10 +27,21 @@ public class StageSelectorScreenController : MonoBehaviour
             var buttonController = goButton.GetComponent<StageButtonController>();
             var localIndex = i;
             buttonController.Init(i, IsStageBlocked(i), () => OpenPlayableScene(localIndex));
+            buttons[i] = goButton;
         }
     }
 
-    void OpenPlayableScene(int sceneIndex)
+    void Update() {
+        if (previousUnlockedStages == StageSelectorStagesLoader.getUnlockedStages()) return;
+        for (var i = 0; i < buttons.Length; i++)
+        {
+            var buttonController = buttons[i].GetComponent<StageButtonController>();
+            buttonController.UpdateSprite(IsStageBlocked(i));
+        }
+        previousUnlockedStages = StageSelectorStagesLoader.getUnlockedStages();
+    }
+
+    public void OpenPlayableScene(int sceneIndex)
     {
         if (!IsStageBlocked(sceneIndex))
         {
@@ -42,10 +55,14 @@ public class StageSelectorScreenController : MonoBehaviour
         }
     }
 
-    bool IsStageBlocked(int index)
+    public GameObject getButton(int index){
+        if (index >= buttons.Length || index < 0) return null;
+        return buttons[index];
+    }
+
+    public bool IsStageBlocked(int index)
     {
-        //TODO: Verificar quando uma fase está bloqueada ou não para abrí-la
-        //por enquanto temos apenas a fase teste, então apenas verificamos a primeira
-        return index != 0;
+        // O index sempre é pos-1
+        return(StageSelectorStagesLoader.getUnlockedStages() <= index);
     }
 }

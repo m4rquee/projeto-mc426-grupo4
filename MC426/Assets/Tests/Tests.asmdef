@@ -6,7 +6,8 @@
         "MenuAssembly",
         "CommonAssembly",
         "BroadcasterAssembly",
-        "StageAssembly"
+        "StageAssembly",
+        "StageSelectorButton"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
