@@ -7,12 +7,16 @@ public class TowerFire : MonoBehaviour
 
     [SerializeField] public string monsterTag;
 
-    public float interval;
+    public uint interval;
 
-    // Start is called before the first frame update
-    private void Start()
+    private void OnEnable()
     {
-        InvokeRepeating(nameof(Shoot), 0, interval);
+        Timer.Subscribe(Shoot, interval);
+    }
+
+    public void OnDisable()
+    {
+        Timer.Unsubscribe(Shoot);
     }
 
     private void Shoot()

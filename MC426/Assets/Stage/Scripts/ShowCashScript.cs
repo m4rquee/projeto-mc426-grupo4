@@ -13,6 +13,6 @@ public class ShowCashScript : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = SlimeCollector.Cash.ToString();
+        scoreText.text = BuildMenu.Cash.ToString();
     }
 }
