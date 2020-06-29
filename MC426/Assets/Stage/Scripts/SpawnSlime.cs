@@ -3,15 +3,21 @@
 public class SpawnSlime : MonoBehaviour
 {
     [SerializeField] private GameObject prefab;
-    [SerializeField] private int delay = 10;
+    [SerializeField] private uint delay = 10;
+    [SerializeField] private int slimeLifetime = 5;
 
-    private void Start()
+    private void OnEnable()
     {
-        InvokeRepeating(nameof(Spawn), delay, delay);
+        Timer.Subscribe(Spawn, delay);
+    }
+
+    public void OnDisable()
+    {
+        Timer.Unsubscribe(Spawn);
     }
 
     private void Spawn()
     {
-        Destroy(Instantiate(prefab, transform.position, Quaternion.identity), 5);
+        Destroy(Instantiate(prefab, transform.position, Quaternion.identity), slimeLifetime);
     }
 }
