@@ -5,7 +5,8 @@
         "UnityEditor.TestRunner",
         "MenuAssembly",
         "CommonAssembly",
-        "BroadcasterAssembly"
+        "BroadcasterAssembly",
+        "StageAssembly"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

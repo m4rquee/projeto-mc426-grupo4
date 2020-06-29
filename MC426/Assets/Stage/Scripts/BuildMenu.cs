@@ -8,12 +8,11 @@ public class BuildMenu : MonoBehaviour
     public BuildInfo[] towers;
     public static int Cash;
 
-    [SerializeField]
-    private int startCash = 80;
+    public static readonly int StartCash = 80;
 
     private void Start()
     {
-        Cash = startCash;
+        Cash = StartCash;
     }
 
     private void OnGUI()
