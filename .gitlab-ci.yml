@@ -2,7 +2,7 @@ image: gableroux/unity3d:2019.3.8f1
 
 stages:
   - build
-  # - test
+  - test
 
 variables:
   BUILD_NAME: CoronaDefense
@@ -41,6 +41,14 @@ build-job:
       - ./${BUILD_NAME}Win64Binary.zip
       - ./${BUILD_NAME}OSXBinary.zip
       - ./${BUILD_NAME}Linux64Binary.zip
+
+  tags:
+      - gitlab-org
+
+test-job:
+  stage: test
+  script:
+    - echo "- Testing project"
 
   tags:
       - gitlab-org
