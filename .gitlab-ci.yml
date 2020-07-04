@@ -19,11 +19,16 @@ build-job:
     
     # Activate unity
     - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile ./Unity_v2019.x.ulf || exit 0
+    - echo "- Building project"
+    - sleep 5
 
     # Build Windows and OSX
-    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/$BUILD_NAME.exe
-    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/$BUILD_NAME.app
-    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildLinux64Player ./bin-linux64/$BUILD_NAME
+    - ls -a
+    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/${BUILD_NAME}.exe
+    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/${BUILD_NAME}.app
+    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildLinux64Player ./bin-linux64/${BUILD_NAME}
+    - echo "- Ziping project"
+    - sleep 5
 
     # Zip builds
     - zip -r ${BUILD_NAME}Win64Binary.zip ./bin-win64
