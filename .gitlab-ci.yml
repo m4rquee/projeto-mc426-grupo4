@@ -6,6 +6,7 @@ stages:
 
 variables:
   BUILD_NAME: CoronaDefense
+  UNITY_DEC_KEY: r=7mD6hjaE%L3*ZX%!K!@-CEduKtzx
 
 build-job:
   stage: build
