@@ -12,10 +12,16 @@ public class TowerPlacer : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if (BuildMenu.Cur == null || tower != null) return;
+        CreateTower();
+    }
+
+    public GameObject CreateTower() 
+    {
+        if (BuildMenu.Cur == null || tower != null) return null;
         tower = Instantiate(BuildMenu.Cur.gameObject, transform.position, Quaternion.identity);
         BuildMenu.Cash -= BuildMenu.Cur.price;
         BuildMenu.Cur = null;
         itemHighlight.Toggle();
+        return tower;
     }
 }

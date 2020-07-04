@@ -8,6 +8,8 @@ TagManager:
   - Road
   - GridSquare
   - Monster
+  - Menu
+  - OptionMenu
   layers:
   - Default
   - TransparentFX

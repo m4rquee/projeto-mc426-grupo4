@@ -1,0 +1,16 @@
+{
+    "name": "StageSelectorInfo",
+    "references": [
+        "GUID:6dfd809a3a3b04a7b89b3d571b800613",
+        "GUID:d58d4d0ae4bbf3c9e90981400369152b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

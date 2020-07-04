@@ -1,0 +1,7 @@
+﻿{
+	"name": "MenuAssembly",
+	"references": [
+		"CommonAssembly",
+		"BroadcasterAssembly"
+	]
+}
