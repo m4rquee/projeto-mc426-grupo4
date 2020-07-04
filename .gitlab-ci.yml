@@ -1,45 +1,43 @@
-version: 2.1
-executors:
-  unity:
-    docker:
-      # https://hub.docker.com/r/gableroux/unity3d/tags
-      - image: gableroux/unity3d:2019.3.8f1
-jobs:
-  build-test:
-    executor: unity
-    steps:
-      - checkout
+image: gableroux/unity3d:2019.3.8f1
 
-      # Install zip
-      - run: apt-get update
-      - run: apt-get install zip -y
+stages:
+  - build
+  # - test
 
-      # Decrypt the license file
-      - run: openssl aes-256-cbc -d -in ./Unity_v2019.x.ulf.enc -k $UNITY_DEC_KEY >> ./Unity_v2019.x.ulf
-      
-      # Activate unity
-      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile ./Unity_v2019.x.ulf || exit 0
-      
-      # Build Windows and OSX
-      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/CoronaDefense.exe
-      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/CoronaDefense.app
-      - run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildLinux64Player ./bin-linux64/CoronaDefense      
-      
-      # Zip builds
-      - run: zip -r CoronaDefenseWin64Binary.zip ./bin-win64
-      - run: zip -r CoronaDefenseOSXBinary.zip ./bin-osx
-      - run: zip -r CoronaDefenseLinux64Binary.zip ./bin-linux64
+variables:
+  BUILD_NAME: CoronaDefense
 
-      # Store builds
-      - store_artifacts:
-          path: ./CoronaDefenseWin64Binary.zip
-      - store_artifacts:
-          path: ./CoronaDefenseOSXBinary.zip
-      - store_artifacts:
-          path: ./CoronaDefenseLinux64Binary.zip
+build-job:
+  stage: build
+  script:
+    - checkout
 
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build-test
+    # Install zip
+    - apt-get update
+    - apt-get install zip -y
+
+    # Decrypt the license file
+    - openssl aes-256-cbc -d -in ./Unity_v2019.x.ulf.enc -k $UNITY_DEC_KEY >> ./Unity_v2019.x.ulf
+    
+    # Activate unity
+    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile ./Unity_v2019.x.ulf || exit 0
+
+    # Build Windows and OSX
+    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/$BUILD_NAME.exe
+    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/$BUILD_NAME.app
+    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildLinux64Player ./bin-linux64/$BUILD_NAME
+
+    # Zip builds
+    - zip -r ${BUILD_NAME}Win64Binary.zip ./bin-win64
+    - zip -r ${BUILD_NAME}OSXBinary.zip ./bin-osx
+    - zip -r ${BUILD_NAME}Linux64Binary.zip ./bin-linux64
+
+  # Store builds
+  artifacts:
+    paths:
+      - ./${BUILD_NAME}Win64Binary.zip
+      - ./${BUILD_NAME}OSXBinary.zip
+      - ./${BUILD_NAME}Linux64Binary.zip
+
+  tags:
+      - CoronaDefense
