@@ -18,7 +18,7 @@ build-job:
     - openssl aes-256-cbc -d -in ./Unity_v2019.x.ulf.enc -k "${UNITY_DEC_KEY}" >> ./Unity_v2019.x.ulf
     
     # Activate unity
-    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile ./Unity_v2019.x.ulf || exit 0
+    - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile ./Unity_v2019.x.ulf
     - echo "- Building project"
     - sleep 5
 
