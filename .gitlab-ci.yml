@@ -10,8 +10,6 @@ variables:
 build-job:
   stage: build
   script:
-    - checkout
-
     # Install zip
     - apt-get update
     - apt-get install zip -y
