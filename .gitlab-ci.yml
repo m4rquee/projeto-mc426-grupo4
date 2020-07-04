@@ -40,4 +40,4 @@ build-job:
       - ./${BUILD_NAME}Linux64Binary.zip
 
   tags:
-      - CoronaDefense
+      - gitlab-org
