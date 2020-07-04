@@ -13,7 +13,7 @@ public class StageSelectorScreenController : MonoBehaviour
     [SerializeField] private GameObject _selectorButtonPrefab;
     [SerializeField] private Animator _blockedStageWarningAnimator;
     private GameObject[] buttons = new GameObject[10];
-    
+
     private int previousUnlockedStages = StageSelectorStagesLoader.getUnlockedStages();
     private static readonly int Appear = Animator.StringToHash("Appear");
 
@@ -31,7 +31,8 @@ public class StageSelectorScreenController : MonoBehaviour
         }
     }
 
-    void Update() {
+    void Update()
+    {
         if (previousUnlockedStages == StageSelectorStagesLoader.getUnlockedStages()) return;
         for (var i = 0; i < buttons.Length; i++)
         {
@@ -55,7 +56,8 @@ public class StageSelectorScreenController : MonoBehaviour
         }
     }
 
-    public GameObject getButton(int index){
+    public GameObject getButton(int index)
+    {
         if (index >= buttons.Length || index < 0) return null;
         return buttons[index];
     }
@@ -63,6 +65,6 @@ public class StageSelectorScreenController : MonoBehaviour
     public bool IsStageBlocked(int index)
     {
         // O index sempre é pos-1
-        return(StageSelectorStagesLoader.getUnlockedStages() <= index);
+        return (StageSelectorStagesLoader.getUnlockedStages() <= index);
     }
 }

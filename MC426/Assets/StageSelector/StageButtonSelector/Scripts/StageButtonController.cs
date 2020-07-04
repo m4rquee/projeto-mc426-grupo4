@@ -18,7 +18,8 @@ public class StageButtonController : MonoBehaviour
         _button.onClick.AddListener(onClick);
     }
 
-    public void UpdateSprite(bool isButtonBlocked){
+    public void UpdateSprite(bool isButtonBlocked)
+    {
         _currentImage.sprite = isButtonBlocked ? _disabledButtonSprite : _enabledButtonSprite;
     }
 }
