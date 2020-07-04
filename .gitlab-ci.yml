@@ -6,7 +6,6 @@ stages:
 
 variables:
   BUILD_NAME: CoronaDefense
-  UNITY_DEC_KEY: r=7mD6hjaE%L3*ZX%!K!@-CEduKtzx
 
 build-job:
   stage: build
@@ -16,7 +15,7 @@ build-job:
     - apt-get install zip -y
 
     # Decrypt the license file
-    - openssl aes-256-cbc -d -in ./Unity_v2019.x.ulf.enc -k $UNITY_DEC_KEY >> ./Unity_v2019.x.ulf
+    - openssl aes-256-cbc -d -in ./Unity_v2019.x.ulf.enc -k "${UNITY_DEC_KEY}" >> ./Unity_v2019.x.ulf
     
     # Activate unity
     - /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile ./Unity_v2019.x.ulf || exit 0
