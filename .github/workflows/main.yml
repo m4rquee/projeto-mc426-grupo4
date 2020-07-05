@@ -20,10 +20,10 @@ jobs:
           run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-linux64/CoronaDefense
 
         - name: Archive Linux Build
-        uses: actions/upload-artifact@v1
-        with:
-          name: CoronaDefenseLinux64Binary
-          path: ./bin-linux64
+          uses: actions/upload-artifact@v1
+          with:
+            name: CoronaDefenseLinux64Binary
+            path: ./bin-linux64
 
         - name: Build Windows Player
           run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/CoronaDefense.exe
