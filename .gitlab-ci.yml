@@ -1,8 +1,8 @@
 image: gableroux/unity3d:2019.3.8f1
 
 stages:
-  - build
   - test
+  - build
 
 variables:
   BUILD_NAME: CoronaDefense
@@ -49,6 +49,13 @@ test-job:
   stage: test
   script:
     - echo "- Testing project"
+    # We should use -nographics, but it does not  work with it:
+    - /opt/Unity/Editor/Unity -runTests -batchmode -projectPath ./MC426 -testResults ../test-results.xml -testPlatform PlayMode
+
+  # Store tests results
+  artifacts:
+    paths:
+      - ./test-results.xml
 
   tags:
       - gitlab-org
