@@ -3,7 +3,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: gableroux/unity3d:2019.3.8f1
+    container: gableroux/unity3d:2019.3.8f1-windows
     steps:
         - name: Checkout Project
           uses: actions/checkout@v1
@@ -16,19 +16,19 @@ jobs:
           run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .github/Unity_v2019.x.ulf || exit 0
         
         # Build Linux, Windows and OSX
-        - name: Build Linux Player
-          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-linux64/CoronaDefense
+        #- name: Build Linux Player
+          #run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-linux64/CoronaDefense
 
-        - name: Archive Linux Build
-          uses: actions/upload-artifact@v1
-          with:
-            name: CoronaDefenseLinux64Binary
-            path: ./bin-linux64
+        #- name: Archive Linux Build
+          #uses: actions/upload-artifact@v1
+          #with:
+            #name: CoronaDefenseLinux64Binary
+            #path: ./bin-linux64
 
         - name: Build Windows Player
           run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/CoronaDefense.exe
-        - name: Build OSX Player
-          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/CoronaDefense.app      
+        #- name: Build OSX Player
+          #run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/CoronaDefense.app      
         
         - name: Archive Windows Build
           uses: actions/upload-artifact@v1
@@ -36,8 +36,8 @@ jobs:
             name: CoronaDefenseWin64Binary
             path: ./bin-win64
 
-        - name: Archive Mac Build
-          uses: actions/upload-artifact@v1
-          with:
-            name: CoronaDefenseOSXBinary
-            path: ./bin-osx
+        #- name: Archive Mac Build
+          #uses: actions/upload-artifact@v1
+          #with:
+            #name: CoronaDefenseOSXBinary
+            #path: ./bin-osx
