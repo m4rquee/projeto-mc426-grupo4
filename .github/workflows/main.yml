@@ -26,13 +26,10 @@ jobs:
             #path: ./bin-linux64
 
         - name: Build Windows Player
-          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/CoronaDefense.exe
-        - name: A
-          run: ls -la
-        - name: B
-          run: pwd
-        - name: C
-          run: ls -la ..
+          run: |
+            /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/CoronaDefense.exe
+            apt install tree -y
+            tree ..
         #- name: Build OSX Player
           #run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/CoronaDefense.app      
         
