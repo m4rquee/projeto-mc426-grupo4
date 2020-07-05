@@ -15,20 +15,29 @@ jobs:
         - name: Activate Unity
           run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .github/Unity_v2019.x.ulf || exit 0
         
-        # Build Windows and OSX
+        # Build Linux, Windows and OSX
+        - name: Build Linux Player
+          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-linux64/CoronaDefense
+
+        - name: Archive Linux Build
+        uses: actions/upload-artifact@v1
+        with:
+          name: CoronaDefenseLinux64Binary
+          path: ./bin-linux64
+
         - name: Build Windows Player
-          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/CISample.exe
+          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ./bin-win64/CoronaDefense.exe
         - name: Build OSX Player
-          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/CISample.app      
+          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildOSXUniversalPlayer ./bin-osx/CoronaDefense.app      
         
         - name: Archive Windows Build
           uses: actions/upload-artifact@v1
           with:
-            name: CISampleWin64Binary
+            name: CoronaDefenseWin64Binary
             path: ./bin-win64
 
         - name: Archive Mac Build
           uses: actions/upload-artifact@v1
           with:
-            name: CISampleOSXBinary
+            name: CoronaDefenseOSXBinary
             path: ./bin-osx
