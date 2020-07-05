@@ -1,7 +1,7 @@
-name: BuildLinux
+name: Build
 on: [push]
 jobs:
-  build:
+  BuildLinux:
     runs-on: ubuntu-latest
     container: gableroux/unity3d:2019.3.8f1
     steps:
@@ -42,10 +42,7 @@ jobs:
             #name: CoronaDefenseOSXBinary
             #path: ./bin-osx
 
-name: BuildWindows
-on: [push]
-jobs:
-  build:
+  BuildWindows:
     runs-on: ubuntu-latest
     container: gableroux/unity3d:2019.3.8f1-windows
     steps:
