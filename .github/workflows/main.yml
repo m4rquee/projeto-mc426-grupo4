@@ -1,9 +1,9 @@
-name: CI
+name: BuildLinux
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: gableroux/unity3d:2019.3.8f1 #-windows
+    container: gableroux/unity3d:2019.3.8f1
     steps:
         - name: Checkout Project
           uses: actions/checkout@v1
@@ -16,14 +16,14 @@ jobs:
           run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .github/Unity_v2019.x.ulf || exit 0
         
         # Build Linux, Windows and OSX
-        - name: Build Linux Player
-          run: /opt/Unity/Editor/Unity -buildTarget Linux64 -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildLinux64Player ../bin-linux64/CoronaDefense
+        #- name: Build Linux Player
+          #run: /opt/Unity/Editor/Unity -buildTarget Linux64 -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildLinux64Player ../bin-linux64/CoronaDefense
 
-        - name: Archive Linux Build
-          uses: actions/upload-artifact@v1
-          with:
-            name: CoronaDefenseLinux64Binary
-            path: ./bin-linux64
+        #- name: Archive Linux Build
+          #uses: actions/upload-artifact@v1
+          #with:
+            #name: CoronaDefenseLinux64Binary
+            #path: ./bin-linux64
 
         #- name: Build Windows Player
           #run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -projectPath ./MC426 -buildWindows64Player ../bin-win64/CoronaDefense.exe
@@ -41,3 +41,20 @@ jobs:
           #with:
             #name: CoronaDefenseOSXBinary
             #path: ./bin-osx
+
+name: BuildWindows
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: gableroux/unity3d:2019.3.8f1-windows
+    steps:
+        - name: Checkout Project
+          uses: actions/checkout@v1
+
+        - name: Decrypt the license file
+          run: openssl aes-256-cbc -d -in .github/Unity_v2019.x.ulf.enc -k ${{ secrets.UNITY_DEC_KEY }} >> .github/Unity_v2019.x.ulf
+        
+        # Activate unity
+        - name: Activate Unity
+          run: /opt/Unity/Editor/Unity -quit -batchmode -nographics -silent-crashes -logFile -manualLicenseFile .github/Unity_v2019.x.ulf || exit 0
