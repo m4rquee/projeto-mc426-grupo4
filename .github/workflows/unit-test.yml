@@ -17,7 +17,9 @@ jobs:
 
         # Test and archive the Tests results
         - name: Run unit Tests
-          run: /opt/Unity/Editor/Unity -runTests -batchmode -projectPath ./MC426 -testResults ../test-results.xml -testPlatform PlayMode
+          run: |
+            export TERM=xterm 
+            /opt/Unity/Editor/Unity -nographics -runTests -batchmode -projectPath ./MC426 -testResults ../test-results.xml -testPlatform PlayMode
 
         - name: Archive Tests results
           uses: actions/upload-artifact@v1
