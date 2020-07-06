@@ -19,7 +19,7 @@ jobs:
         - name: Run unit Tests
           run: |
             export TERM=xterm 
-            /opt/Unity/Editor/Unity -nographics -runTests -batchmode -projectPath ./MC426 -testResults ../test-results.xml -testPlatform PlayMode
+            /opt/Unity/Editor/Unity -nographics -runTests -batchmode -projectPath ./MC426 -testResults ../test-results.xml -testPlatform PlayMode -editorTestsFilter DummyTest
 
         - name: Archive Tests results
           uses: actions/upload-artifact@v1
